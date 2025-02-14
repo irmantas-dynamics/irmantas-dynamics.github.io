@@ -17,9 +17,11 @@
             
             let list = document.getElementById("repo-list");
             repos.forEach(repo => {
+              if (repo.name !== "irmantas-dynamics.github.io") {  // Exclude the "BBD" repository
                 let li = document.createElement("li");
                 li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
                 list.appendChild(li);
+              }
             });
         }
         fetchRepos();
