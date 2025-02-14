@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Projects</title>
+</head>
+<body>
+    <h1>My GitHub Repositories</h1>
+    <ul id="repo-list"></ul>
+
+    <script>
+        async function fetchRepos() {
+            let username = "irmantas-dynamics";  // Replace with your GitHub username
+            let response = await fetch(`https://api.github.com/users/${username}/repos`);
+            let repos = await response.json();
+            
+            let list = document.getElementById("repo-list");
+            repos.forEach(repo => {
+                let li = document.createElement("li");
+                li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+                list.appendChild(li);
+            });
+        }
+        fetchRepos();
+    </script>
+</body>
+</html>
