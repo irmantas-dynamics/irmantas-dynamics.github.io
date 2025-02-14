@@ -1,1 +1,0 @@
-# irmantas-dynamics.github.io
